@@ -21,6 +21,9 @@ pip-delete-this-directory.txt
 htmlcov/
 .hypothesis/
 
+# MkDocs build output
+site/
+
 # IDEs
 .idea/
 .vscode/
