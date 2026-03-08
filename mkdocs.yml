@@ -1,0 +1,75 @@
+site_name: admiralpy
+site_url: https://bms63.github.io/admiralpy/
+site_description: Python implementation of the admiral R package for ADaM clinical trial dataset derivation
+site_author: admiralpy contributors
+
+repo_name: bms63/admiralpy
+repo_url: https://github.com/bms63/admiralpy
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - Home: index.md
+  - Get Started: get_started.md
+  - API Reference:
+    - Date/Time Derivations: api/derive_vars_dt.md
+    - Baseline & Change: api/derive_var_baseline.md
+    - Merged Variables: api/derive_vars_merged.md
+    - Computed Parameters: api/derive_param_computed.md
+    - Filter Utilities: api/filter_extreme.md
+    - Conversion Helpers: api/convert_dtc.md
+    - Compute Functions: api/compute.md
+  - Changelog: changelog.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: numpy
+            show_source: true
+            show_root_heading: true
+            heading_level: 2
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - tables
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/bms63/admiralpy

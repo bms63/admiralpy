@@ -34,9 +34,16 @@ dev = [
     "pytest>=7.0",
     "pytest-cov>=4.0",
 ]
+docs = [
+    "mkdocs>=1.5,<2.0",
+    "mkdocs-material>=9.0,<10.0",
+    "mkdocstrings>=0.24",
+    "mkdocstrings-python>=1.0",
+]
 
 [project.urls]
-Homepage = "https://github.com/bms63/admiralpy"
+Homepage = "https://bms63.github.io/admiralpy/"
+Documentation = "https://bms63.github.io/admiralpy/"
 Repository = "https://github.com/bms63/admiralpy"
 "Bug Tracker" = "https://github.com/bms63/admiralpy/issues"
 
