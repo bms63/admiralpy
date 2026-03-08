@@ -1,0 +1,232 @@
+Metadata-Version: 2.4
+Name: admiralpy
+Version: 0.1.0
+Summary: Python implementation of the admiral R package for ADaM clinical trial dataset derivation
+Author: admiralpy contributors
+License: Apache License
+        Version 2.0, January 2004
+        http://www.apache.org/licenses/
+        
+        TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        
+        1. Definitions.
+        
+           "License" shall mean the terms and conditions for use, reproduction,
+           and distribution as defined by Sections 1 through 9 of this document.
+        
+           "Licensor" shall mean the copyright owner or entity authorized by
+           the copyright owner that is granting the License.
+        
+           "Legal Entity" shall mean the union of the acting entity and all
+           other entities that control, are controlled by, or are under common
+           control with that entity.
+        
+           "You" (or "Your") shall mean an individual or Legal Entity
+           exercising permissions granted by this License.
+        
+           "Source" form shall mean the preferred form for making modifications,
+           including but not limited to software source code, documentation
+           source, and configuration files.
+        
+           "Object" form shall mean any form resulting from mechanical
+           transformation or translation of a Source form, including but
+           not limited to compiled object code, generated documentation,
+           and conversions to other media types.
+        
+           "Work" shall mean the work of authorship made available under
+           the License, as indicated by a copyright notice that is included
+           in or attached to the work.
+        
+           "Derivative Works" shall mean any work, whether in Source or Object
+           form, that is based on (or derived from) the Work and for which the
+           editorial revisions, annotations, elaborations, or other modifications
+           represent, as a whole, an original work of authorship.
+        
+           "Contribution" shall mean, as submitted to the Licensor for inclusion
+           in the Work by You, including the original version of the Work and any
+           modifications or additions to that Work or Derivative Works of the Work.
+        
+           "Contributor" shall mean Licensor and any Legal Entity on behalf of
+           whom a Contribution has been received by the Licensor and included
+           within the Work.
+        
+        2. Grant of Copyright License. Subject to the terms and conditions of
+           this License, each Contributor hereby grants to You a perpetual,
+           worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+           copyright license to reproduce, prepare Derivative Works of,
+           publicly display, publicly perform, sublicense, and distribute the
+           Work and such Derivative Works in Source or Object form.
+        
+        3. Grant of Patent License. Subject to the terms and conditions of
+           this License, each Contributor hereby grants to You a perpetual,
+           worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+           patent license to make, use, sell, offer for sale, import, and
+           otherwise transfer the Work.
+        
+        4. Redistribution. You may reproduce and distribute copies of the
+           Work or Derivative Works thereof in any medium, with or without
+           modifications, and in Source or Object form, provided that You
+           meet the following conditions:
+        
+           (a) You must give any other recipients of the Work or Derivative
+               Works a copy of this License; and
+        
+           (b) You must cause any modified files to carry prominent notices
+               stating that You changed the files; and
+        
+           (c) You must retain, in the Source form of any Derivative Works
+               that You distribute, all copyright, patent, trademark, and
+               attribution notices from the Source form of the Work; and
+        
+           (d) If the Work includes a "NOTICE" text file, include a readable
+               copy of the attribution notices contained within such NOTICE
+               file, in the Source form of any Derivative Works that You
+               distribute.
+        
+           You may add Your own attribution notices within Derivative Works
+           that You distribute, alongside or in addition to the NOTICE text
+           from the Work.
+        
+        5. Submission of Contributions. Unless You explicitly state otherwise,
+           any Contribution submitted for inclusion in the Work by You shall be
+           under the terms and conditions of this License, without any additional
+           terms or conditions.
+        
+        6. Trademarks. This License does not grant permission to use the trade
+           names, trademarks, service marks, or product names of the Licensor,
+           except as required for reasonable and customary use in describing the
+           origin of the Work.
+        
+        7. Disclaimer of Warranty. UNLESS REQUIRED BY APPLICABLE LAW OR AGREED
+           TO IN WRITING, LICENSOR PROVIDES THE WORK (AND EACH CONTRIBUTOR
+           PROVIDES ITS CONTRIBUTIONS) ON AN "AS IS" BASIS, WITHOUT WARRANTIES
+           OR CONDITIONS OF ANY KIND, either express or implied.
+        
+        8. Limitation of Liability. IN NO EVENT AND UNDER NO LEGAL THEORY,
+           WHETHER IN TORT (INCLUDING NEGLIGENCE), CONTRACT, OR OTHERWISE,
+           SHALL ANY CONTRIBUTOR BE LIABLE FOR ANY DAMAGES arising as a result
+           of this License or out of the use or inability to use the Work.
+        
+        9. Accepting Warranty or Liability. While redistributing the Work or
+           Derivative Works thereof, You may choose to offer, and charge a fee
+           for, acceptance of support, warranty, indemnity, or other liability
+           obligations consistent with this License. However, in accepting such
+           obligations, You may offer such obligations only on Your own behalf
+           and on Your sole responsibility, not on behalf of any other Contributor.
+        
+        END OF TERMS AND CONDITIONS
+        
+Project-URL: Homepage, https://github.com/bms63/admiralpy
+Project-URL: Repository, https://github.com/bms63/admiralpy
+Project-URL: Bug Tracker, https://github.com/bms63/admiralpy/issues
+Keywords: admiral,ADaM,CDISC,clinical trials,pharmaverse
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas>=1.5.0
+Requires-Dist: numpy>=1.23.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0; extra == "dev"
+Dynamic: license-file
+
+# admiralpy
+
+A Python re-implementation of the [admiral](https://github.com/pharmaverse/admiral) R package — an open-source toolbox for creating **ADaM (Analysis Data Model)** datasets for clinical trials following [CDISC](https://www.cdisc.org/) standards.
+
+## Installation
+
+```bash
+pip install admiralpy
+```
+
+Or install directly from source:
+
+```bash
+git clone https://github.com/bms63/admiralpy.git
+cd admiralpy
+pip install -e ".[dev]"
+```
+
+## Features
+
+| Function | Description |
+|---|---|
+| `derive_vars_dt()` | Derive a date variable (`*DT`) from a character DTC variable |
+| `derive_vars_dtm()` | Derive a datetime variable (`*DTM`) from a character DTC variable |
+| `derive_var_base()` | Derive a baseline variable (e.g. `BASE`) in a BDS dataset |
+| `derive_var_chg()` | Derive change from baseline (`CHG = AVAL − BASE`) |
+| `derive_var_pchg()` | Derive percent change from baseline (`PCHG`) |
+| `compute_age_years()` | Convert age from any unit to years |
+| `compute_bmi()` | Compute Body Mass Index (BMI) |
+| `compute_bsa()` | Compute Body Surface Area (BSA) |
+
+## Quick Start
+
+```python
+import pandas as pd
+from admiralpy import (
+    derive_vars_dt,
+    derive_var_base,
+    derive_var_chg,
+    derive_var_pchg,
+    compute_bmi,
+)
+
+# 1. Convert a DTC column to a date variable with day imputation
+mhdt = pd.DataFrame({
+    "MHSTDTC": ["2019-07-18T15:25:40", "2019-07-18", "2019-02", "2019", ""]
+})
+mhdt = derive_vars_dt(
+    mhdt,
+    new_vars_prefix="AST",
+    dtc="MHSTDTC",
+    highest_imputation="M",
+    date_imputation="first",
+)
+print(mhdt[["MHSTDTC", "ASTDT", "ASTDTF"]])
+
+# 2. Derive BASE, CHG, and PCHG
+advs = pd.DataFrame({
+    "USUBJID": ["P01", "P01", "P01"],
+    "PARAMCD": ["WEIGHT"] * 3,
+    "AVAL":    [80.0, 80.8, 81.4],
+    "ABLFL":   ["Y", None, None],
+})
+advs = derive_var_base(advs, by_vars=["USUBJID", "PARAMCD"])
+advs = derive_var_chg(advs)
+advs = derive_var_pchg(advs)
+print(advs)
+
+# 3. Compute BMI
+bmi = compute_bmi(height=170, weight=75)
+print(f"BMI: {bmi:.2f} kg/m²")
+```
+
+## Running Tests
+
+```bash
+pip install -e ".[dev]"
+pytest
+```
+
+## Design Principles
+
+`admiralpy` follows the same design philosophy as the R `admiral` package:
+
+- **Usability** – thoroughly documented functions with clear examples.
+- **Simplicity** – each function has a single, well-defined purpose.
+- **Consistency** – naming conventions mirror the admiral R package (`derive_vars_*`, `derive_var_*`, `compute_*`).
+
+## License
+
+Apache License 2.0 — see [LICENSE](LICENSE).

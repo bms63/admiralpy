@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "admiralpy"
+version = "0.1.0"
+description = "Python implementation of the admiral R package for ADaM clinical trial dataset derivation"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "admiralpy contributors" }
+]
+keywords = ["admiral", "ADaM", "CDISC", "clinical trials", "pharmaverse"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "pandas>=1.5.0",
+    "numpy>=1.23.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/bms63/admiralpy"
+Repository = "https://github.com/bms63/admiralpy"
+"Bug Tracker" = "https://github.com/bms63/admiralpy/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["admiralpy*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
