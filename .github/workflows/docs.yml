@@ -1,0 +1,35 @@
+name: Deploy docs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  # Allow manual triggering from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install package and docs dependencies
+        run: |
+          pip install -e .
+          pip install \
+            "mkdocs>=1.5,<2.0" \
+            "mkdocs-material>=9.0,<10.0" \
+            "mkdocstrings>=0.24" \
+            "mkdocstrings-python>=1.0"
+
+      - name: Build and deploy docs
+        run: mkdocs gh-deploy --force
